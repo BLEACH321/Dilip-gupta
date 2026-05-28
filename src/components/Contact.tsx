@@ -83,11 +83,6 @@ export const Contact: React.FC = () => {
         <div className="contact-grid grid-2">
           {/* Contact Details */}
           <div className="contact-details-area">
-            <h3 className="contact-subheading">Schedule an Appointment</h3>
-            <p className="contact-intro">
-              Whether you are an Insurance Marketing Firm, a prospective business associate, or looking for premium mutual fund / life protection advisory, feel free to reach out. I look forward to partnering with you.
-            </p>
-
             <div className="contact-info-cards">
               <a href="tel:+918898095006" className="info-card glass-panel">
                 <Phone className="info-icon gold" />
