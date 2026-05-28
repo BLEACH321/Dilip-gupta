@@ -111,16 +111,25 @@
   z-index: 2;
   cursor: pointer;
   perspective: 1000px; /* Enable 3D transitions */
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .timeline-item.left {
   left: 0;
   padding-right: 3.5rem;
+  transform: translateX(-60px);
 }
 
 .timeline-item.right {
   left: 50%;
   padding-left: 3.5rem;
+  transform: translateX(60px);
+}
+
+.timeline-item.in-view {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .timeline-dot {

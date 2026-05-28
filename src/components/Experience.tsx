@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Calendar, Briefcase, ChevronDown, ChevronUp, MapPin, CheckCircle } from 'lucide-react';
 import './Experience.css';
 
@@ -15,6 +15,35 @@ interface ExperienceItem {
 
 export const Experience: React.FC = () => {
   const [activeCard, setActiveCard] = useState<number>(0);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const items = document.querySelectorAll('.timeline-item');
+    items.forEach((item) => observer.observe(item));
+
+    return () => {
+      items.forEach((item) => observer.unobserve(item));
+    };
+  }, []);
+
+  const handleCardClick = (id: number, event: React.MouseEvent<HTMLDivElement>) => {
+    setActiveCard(id);
+    
+    // Smoothly scroll the clicked card into optimal viewport alignment
+    setTimeout(() => {
+      event.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  };
 
   const experiences: ExperienceItem[] = [
     {
@@ -122,7 +151,7 @@ export const Experience: React.FC = () => {
                 <div 
                   key={exp.id} 
                   className={`timeline-item ${isActive ? 'active' : ''} ${idx % 2 === 0 ? 'left' : 'right'}`}
-                  onClick={() => setActiveCard(exp.id)}
+                  onClick={(e) => handleCardClick(exp.id, e)}
                 >
                   {/* Timeline point indicator */}
                   <div className="timeline-dot">
