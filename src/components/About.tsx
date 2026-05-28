@@ -5,16 +5,10 @@ import './About.css';
 export const About: React.FC = () => {
   const education = [
     {
-      degree: "SSC (Secondary School Certificate)",
-      score: "65%",
-      institution: "Mumbai Board",
-      year: "First Class Distinction",
-    },
-    {
-      degree: "HSC (Higher Secondary Certificate)",
-      score: "49%",
-      institution: "Mumbai Board",
-      year: "Commerce Stream",
+      degree: "Graduation",
+      score: "Completed",
+      institution: "Mumbai University",
+      year: "Bachelor's Degree",
     },
   ];
 
