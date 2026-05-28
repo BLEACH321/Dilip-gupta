@@ -220,6 +220,7 @@ export const Contact: React.FC = () => {
 
         <footer className="footer-area">
           <p>© {new Date().getFullYear()} Dilip Gupta. All rights reserved. | Strategic Finance & Wealth Advisor.</p>
+          <p style={{ marginTop: '0.5rem', color: 'var(--accent-gold)', fontWeight: '600', letterSpacing: '0.05em' }}>Made by SScreatives</p>
         </footer>
       </div>
     </section>

@@ -47,7 +47,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onEnter }) => {
   useEffect(() => {
     if (!isStarted) return;
 
-    // Start progress bar increments
+    // Start progress bar increments (blazingly fast speed)
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -55,7 +55,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onEnter }) => {
           return 100;
         }
         
-        const next = prev + Math.floor(Math.random() * 8) + 4;
+        const next = prev + Math.floor(Math.random() * 12) + 8;
         const val = next > 100 ? 100 : next;
         
         // Update statuses
@@ -73,7 +73,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onEnter }) => {
         
         return val;
       });
-    }, 120);
+    }, 45);
 
     return () => clearInterval(interval);
   }, [isStarted]);
@@ -84,9 +84,9 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onEnter }) => {
         setIsFading(true);
         const enterTimeout = setTimeout(() => {
           onEnter();
-        }, 1000);
+        }, 400);
         return () => clearTimeout(enterTimeout);
-      }, 1200);
+      }, 350);
 
       return () => clearTimeout(fadeTimeout);
     }
