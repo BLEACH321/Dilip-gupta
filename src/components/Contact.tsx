@@ -114,9 +114,17 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="location-disclaimer glass-panel">
-              <span className="disc-badge">Mumbai Region</span>
-              <p>Active support coverage across greater Mumbai and the Rest of Maharashtra (ROM).</p>
+            <div className="google-map-container glass-panel">
+              <iframe 
+                title="Office Location Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.78978187806!2d72.88876407604561!3d19.1179471507722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c8702c2e01df%3A0xe54d31e9c20a84f3!2sSangharsh%20Nagar%2C%20Andheri%20East%2C%20Mumbai%2C%20Maharashtra%20400072!5e0!3m2!1sen!2sin!4v1716900000000!5m2!1sen!2sin"
+                width="100%" 
+                height="190" 
+                style={{ border: 0, borderRadius: '12px', filter: 'invert(90%) hue-rotate(180deg) opacity(85%)' }} 
+                allowFullScreen={false} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
 
